@@ -1,0 +1,16 @@
+{
+  "name": "distributed_app_with_go",
+  "version": "1.0.0",
+  "description": "Project for learning how to create a distributed application with Go",
+  "main": "main.go",
+  "scripts": {},
+  "keywords": [
+    "golang",
+    "distributed"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-shell": "^0.4.2"
+  }
+}
