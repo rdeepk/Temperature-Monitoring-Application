@@ -21,7 +21,7 @@ var min = flag.Float64("min", 1., "minimum value for generated readings")
 var stepSize = flag.Float64("stepSize", 0.1, "maximum allowable change per measurement")
 
 var r = rand.New(rand.NewSource(time.Now().UnixNano()))
-var value = r.Float64()*(*max-*min) + *min
+var value = r.Float64()*(*max-*min) + *min //initial value a sensor would contain
 var nom = (*max-*min)/2 + *min
 
 func main() {
@@ -32,7 +32,9 @@ func main() {
 	defer ch.Close()
 
 	dataQueue := qutils.GetQueue(*name, ch)
+	//dur to describe thr time between each signal
 	dur, _ := time.ParseDuration(strconv.Itoa(1000/int(*freq)) + "ms")
+	//Tick holds a channel that delivers `ticks' of a clock at intervals.
 	signal := time.Tick(dur)
 	buf := new(bytes.Buffer)
 	enc := gob.NewEncoder(buf)
