@@ -30,6 +30,6 @@ func (ea *EventAggregator) PublishEvent(name string, eventdata EventData) {
 
 type EventData struct {
 	Name      string
-	value     float64
-	timestamp time.Time
+	Value     float64
+	Timestamp time.Time
 }
